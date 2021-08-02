@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>EasyAbp.BigDataSolution.Metadata</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EasyAbp.BigDataSolution.Metadata.Application\EasyAbp.BigDataSolution.Metadata.Application.csproj" />
+    <ProjectReference Include="..\EasyAbp.BigDataSolution.Metadata.Domain.Tests\EasyAbp.BigDataSolution.Metadata.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+  </ItemGroup>
+
+</Project>
