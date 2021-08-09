@@ -1,7 +1,12 @@
-﻿namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Cassandra
+﻿using Volo.Abp.DependencyInjection;
+
+namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Cassandra
 {
-    public class CassandraClient
+    public class CassandraClient : ICassandraClient, ITransientDependency
     {
-        
+    }
+
+    public interface ICassandraClient
+    {
     }
 }

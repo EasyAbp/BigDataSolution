@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.BigDataSolution.Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.BigDataSolution.Infrastructure", "src\EasyAbp.BigDataSolution.Infrastructure\EasyAbp.BigDataSolution.Infrastructure.csproj", "{4DE9262D-A929-4F99-92EF-65FEA9BB8212}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E31B49E6-CD70-47FC-B969-D4A50AAB7D1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.BigDataSolution.Cli.Test", "test\EasyAbp.BigDataSolution.Cli.Test\EasyAbp.BigDataSolution.Cli.Test.csproj", "{598205EE-5349-451D-8D12-91E8E4AA6C51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.BigDataSolution.Infrastructure.Test", "test\EasyAbp.BigDataSolution.Infrastructure.Test\EasyAbp.BigDataSolution.Infrastructure.Test.csproj", "{CB41FC52-FA6B-44F0-A5F3-DECE661F26A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +26,19 @@ Global
 		{4DE9262D-A929-4F99-92EF-65FEA9BB8212}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DE9262D-A929-4F99-92EF-65FEA9BB8212}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DE9262D-A929-4F99-92EF-65FEA9BB8212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598205EE-5349-451D-8D12-91E8E4AA6C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598205EE-5349-451D-8D12-91E8E4AA6C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598205EE-5349-451D-8D12-91E8E4AA6C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598205EE-5349-451D-8D12-91E8E4AA6C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB41FC52-FA6B-44F0-A5F3-DECE661F26A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB41FC52-FA6B-44F0-A5F3-DECE661F26A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB41FC52-FA6B-44F0-A5F3-DECE661F26A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB41FC52-FA6B-44F0-A5F3-DECE661F26A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E116F535-6C66-4EF9-8C97-B4C1368A9321} = {445DE538-D6D3-4E9E-A8F4-181E31DA9EAD}
 		{4DE9262D-A929-4F99-92EF-65FEA9BB8212} = {445DE538-D6D3-4E9E-A8F4-181E31DA9EAD}
+		{598205EE-5349-451D-8D12-91E8E4AA6C51} = {E31B49E6-CD70-47FC-B969-D4A50AAB7D1E}
+		{CB41FC52-FA6B-44F0-A5F3-DECE661F26A5} = {E31B49E6-CD70-47FC-B969-D4A50AAB7D1E}
 	EndGlobalSection
 EndGlobal

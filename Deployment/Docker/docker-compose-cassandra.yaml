@@ -1,0 +1,49 @@
+version: "3.3"
+
+# make sure that docker machine has enough memory to run the cluster.
+# setting it up to 4GB seems to work.
+
+services:
+
+  cassandra-seed:
+    image: cassandra:latest
+    ports:
+     - "9042:9042"
+    volumes:
+      - "/root/Docker/Volumes/Cassandra/SeedNode:/var/lib/cassandra"
+    environment:
+      - "CASSANDRA_SEEDS=cassandra-seed"
+      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
+#      needed for setting up custom cluster name
+      - "CASSANDRA_DC=se1"
+      - "CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch"
+#    restart: always
+
+
+  cassandra1:
+    image: cassandra:latest
+    volumes:
+      - "/root/Docker/Volumes/Cassandra/Node1:/var/lib/cassandra"
+    environment:
+      - "CASSANDRA_SEEDS=cassandra-seed"
+      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
+#      needed for setting up custom cluster name
+      - "CASSANDRA_DC=se1"
+      - "CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch"
+    depends_on:
+      - cassandra-seed
+#    restart: always
+
+  cassandra2:
+    image: cassandra:latest
+    volumes:
+      - "/root/Docker/Volumes/Cassandra/Node2:/var/lib/cassandra"
+    environment:
+      - "CASSANDRA_SEEDS=cassandra-seed"
+      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
+#      needed for setting up custom cluster name
+      - "CASSANDRA_DC=se1"
+      - "CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch"
+    depends_on:
+      - cassandra-seed
+#    restart: always

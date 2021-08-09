@@ -6,5 +6,6 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp
     [DependsOn(typeof(AbpDddDomainModule))]
     public class EasyAbpBigDataModule : AbpModule
     {
+        
     }
 }
