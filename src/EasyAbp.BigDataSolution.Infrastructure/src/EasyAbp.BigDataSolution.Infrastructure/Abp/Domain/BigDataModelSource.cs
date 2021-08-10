@@ -17,7 +17,7 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain
         protected virtual BigDataDbContextModel CreateModel(BigDataDbContext dbContext)
         {
             var modelBuilder = CreateModelBuilder();
-            // BuildModelFromDbContextType(modelBuilder, dbContext.GetType());
+            // Constructing entities from DbContext is not supported.
             BuildModelFromDbContextInstance(modelBuilder, dbContext);
             return modelBuilder.Build(dbContext);
         }
