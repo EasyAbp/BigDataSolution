@@ -7,6 +7,8 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Test
     {
         public IBigDataTable<User> Users { get; set; }
 
+        public IBigDataTable<Role> Roles { get; set; }
+
         protected override void CreateModel(IBigDataModelBuilder modelBuilder)
         {
             base.CreateModel(modelBuilder);
