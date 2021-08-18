@@ -4,5 +4,6 @@
     &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Domain.BigDataDbContextHelperTests.GetEntityTypes_Test&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Domain.UserRepositoryTests.Test&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Domain.UserRepositoryTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Cassandra.CassandraClientTests.ExecuteQueryAsync_Test&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
