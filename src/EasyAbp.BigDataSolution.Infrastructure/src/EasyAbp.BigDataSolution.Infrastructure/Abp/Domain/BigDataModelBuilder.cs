@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using Volo.Abp.Domain.Entities;
 
 namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain
 {
@@ -15,7 +16,7 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain
             _entityModelBuilders = new Dictionary<Type, object>();
         }
 
-        public void Entity<TEntity>(Action<IBigDataEntityModelBuilder<TEntity>> buildAction = null)
+        public void Entity<TEntity>(Action<IBigDataEntityModelBuilder<TEntity>> buildAction = null) where TEntity : class, IEntity, new()
         {
             var model = (IBigDataEntityModelBuilder<TEntity>)_entityModelBuilders.GetOrAdd(
                 typeof(TEntity),
