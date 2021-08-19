@@ -75,75 +75,27 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain.Repositories
     }
 
     public class BigDataRepository<TBigDataDbContext, TEntity, TKey> :
-        RepositoryBase<TEntity, TKey>,
+        BigDataRepository<TBigDataDbContext, TEntity>,
         IBigDataRepository<TEntity, TKey>
         where TBigDataDbContext : IBigDataDbContext
         where TEntity : class, IEntity<TKey>
     {
-        public override Task<TEntity> InsertAsync(TEntity entity, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
+        public Task<TEntity> GetAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = new CancellationToken())
         {
             throw new NotImplementedException();
         }
 
-        public override Task<TEntity> UpdateAsync(TEntity entity, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
+        public Task<TEntity> FindAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = new CancellationToken())
         {
             throw new NotImplementedException();
         }
 
-        public override Task DeleteAsync(TEntity entity, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
+        public Task DeleteAsync(TKey id, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
         {
             throw new NotImplementedException();
         }
 
-        public override Task<List<TEntity>> GetListAsync(bool includeDetails = false, CancellationToken cancellationToken = new CancellationToken())
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate, bool includeDetails = false,
-            CancellationToken cancellationToken = new CancellationToken())
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<long> GetCountAsync(CancellationToken cancellationToken = new CancellationToken())
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<List<TEntity>> GetPagedListAsync(int skipCount, int maxResultCount, string sorting, bool includeDetails = false,
-            CancellationToken cancellationToken = new CancellationToken())
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override IQueryable<TEntity> GetQueryable()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<IQueryable<TEntity>> GetQueryableAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate, bool includeDetails = true,
-            CancellationToken cancellationToken = new CancellationToken())
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task DeleteAsync(Expression<Func<TEntity, bool>> predicate, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<TEntity> GetAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = new CancellationToken())
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<TEntity> FindAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = new CancellationToken())
+        public Task DeleteManyAsync(IEnumerable<TKey> ids, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
         {
             throw new NotImplementedException();
         }
