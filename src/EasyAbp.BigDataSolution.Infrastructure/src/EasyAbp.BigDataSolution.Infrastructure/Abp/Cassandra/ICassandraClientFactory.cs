@@ -1,36 +1,25 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Cassandra;
-using Volo.Abp.Data;
+using EasyAbp.BigDataSolution.Infrastructure.Abp.Domain;
 using Volo.Abp.DependencyInjection;
 
 namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Cassandra
 {
-    public interface ICassandraClientFactory : ISingletonDependency
+    public interface ICassandraClientFactory
     {
-        Task<ICassandraClient> CreateAsync();
+        Task<ICassandraClient> CreateAsync(BigDataConnectionString connectionString, CancellationToken cancellationToken = default);
     }
 
-    public class CassandraClientFactory : ICassandraClientFactory
+    public class CassandraClientFactory : ICassandraClientFactory, ISingletonDependency
     {
-        private readonly IConnectionStringResolver _connectionStringResolver;
-
-        private const int AddressIndex = 0;
-        private const int KeySpaceIndex = 1;
-
-        public CassandraClientFactory(IConnectionStringResolver connectionStringResolver)
+        public async Task<ICassandraClient> CreateAsync(BigDataConnectionString connectionString,
+            CancellationToken cancellationToken = default)
         {
-            _connectionStringResolver = connectionStringResolver;
-        }
-
-        public async Task<ICassandraClient> CreateAsync()
-        {
-            var connectionStrings = (await _connectionStringResolver.ResolveAsync()).Split(';');
-
-            var cluster = Cluster.Builder()
-                .AddContactPoint(connectionStrings[AddressIndex])
-                .Build();
-
-            var session = await cluster.ConnectAsync(connectionStrings[KeySpaceIndex]);
+            var session = await Cluster.Builder()
+                .AddContactPoint(connectionString.CassandraAddress)
+                .Build()
+                .ConnectAsync(connectionString.CassandraKeySpace);
 
             return new CassandraClient(session);
         }

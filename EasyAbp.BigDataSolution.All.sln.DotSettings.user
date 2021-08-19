@@ -1,9 +1,14 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0f7d7c53_002De2af_002D4bc3_002Da5f4_002D87ddd0cebea2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetEntityTypes_Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0f7d7c53_002De2af_002D4bc3_002Da5f4_002D87ddd0cebea2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetEntityTypes_Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Domain.BigDataDbContextHelperTests.GetEntityTypes_Test&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Domain.UserRepositoryTests.Test&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Domain.UserRepositoryTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Cassandra.CassandraClientTests.ExecuteQueryAsync_Test&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=922e746d_002D4264_002D4757_002D97f2_002D31a1c56c768a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Insert_Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::364C6812-2C4D-448A-A18A-BDE6BDCD8419::net5.0::EasyAbp.BigDataSolution.Infrastructure.Test.Domain.UserRepositoryTests.Insert_Test&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

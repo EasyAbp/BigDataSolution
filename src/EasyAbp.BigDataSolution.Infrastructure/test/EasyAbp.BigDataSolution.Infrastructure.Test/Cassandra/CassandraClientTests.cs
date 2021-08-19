@@ -1,6 +1,5 @@
 ﻿using Cassandra;
 using EasyAbp.BigDataSolution.Infrastructure.Abp.Cassandra;
-using EasyAbp.BigDataSolution.Infrastructure.Test.Domain;
 using Shouldly;
 using Xunit;
 

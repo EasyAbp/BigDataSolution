@@ -1,5 +1,7 @@
 ﻿using EasyAbp.BigDataSolution.Infrastructure.Abp.DependencyInjection;
+using EasyAbp.BigDataSolution.Infrastructure.Abp.Domain;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Volo.Abp.Domain;
 using Volo.Abp.Modularity;
 
@@ -15,7 +17,10 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            base.ConfigureServices(context);
+            context.Services.TryAddTransient(
+                typeof(IBigDataDbContextProvider<>),
+                typeof(BigDataDbContextProvider<>)
+            );
         }
     }
 }

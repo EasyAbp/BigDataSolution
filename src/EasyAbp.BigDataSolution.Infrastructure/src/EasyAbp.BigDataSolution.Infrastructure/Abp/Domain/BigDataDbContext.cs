@@ -17,6 +17,7 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain
             IKafkaClientFactory kafkaClientFactory,
             IElasticSearchClient elasticSearchClient)
         {
+            CassandraClient = cassandraClient;
         }
 
         protected internal virtual void CreateModel(IBigDataModelBuilder modelBuilder)

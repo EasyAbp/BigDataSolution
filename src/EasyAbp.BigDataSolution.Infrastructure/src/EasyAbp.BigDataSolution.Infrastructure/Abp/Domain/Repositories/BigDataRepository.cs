@@ -15,9 +15,21 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain.Repositories
         where TBigDataDbContext : IBigDataDbContext
         where TEntity : class, IEntity
     {
-        public override Task<TEntity> InsertAsync(TEntity entity, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
+        protected IBigDataDbContextProvider<TBigDataDbContext> DbContextProvider { get; }
+
+        public BigDataRepository(IBigDataDbContextProvider<TBigDataDbContext> dbContextProvider)
         {
-            throw new NotImplementedException();
+            DbContextProvider = dbContextProvider;
+        }
+
+        public override async Task<TEntity> InsertAsync(TEntity entity, bool autoSave = false, CancellationToken cancellationToken = default)
+        {
+            cancellationToken = GetCancellationToken(cancellationToken);
+
+            var dbContext = await GetDbContextAsync(cancellationToken);
+            await dbContext.CassandraClient.InsertAsync(entity);
+
+            return entity;
         }
 
         public override Task<TEntity> UpdateAsync(TEntity entity, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
@@ -72,6 +84,22 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain.Repositories
         {
             throw new NotImplementedException();
         }
+
+        protected Task<TBigDataDbContext> GetDbContextAsync(CancellationToken cancellationToken = default)
+        {
+            cancellationToken = GetCancellationToken(cancellationToken);
+
+            // Multi-tenancy unaware entities should always use the host connection string
+            if (!EntityHelper.IsMultiTenant<TEntity>())
+            {
+                using (CurrentTenant.Change(null))
+                {
+                    return DbContextProvider.GetDbContextAsync(cancellationToken);
+                }
+            }
+
+            return DbContextProvider.GetDbContextAsync(cancellationToken);
+        }
     }
 
     public class BigDataRepository<TBigDataDbContext, TEntity, TKey> :
@@ -80,6 +108,10 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain.Repositories
         where TBigDataDbContext : IBigDataDbContext
         where TEntity : class, IEntity<TKey>
     {
+        public BigDataRepository(IBigDataDbContextProvider<TBigDataDbContext> dbContextProvider) : base(dbContextProvider)
+        {
+        }
+
         public Task<TEntity> GetAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = new CancellationToken())
         {
             throw new NotImplementedException();
