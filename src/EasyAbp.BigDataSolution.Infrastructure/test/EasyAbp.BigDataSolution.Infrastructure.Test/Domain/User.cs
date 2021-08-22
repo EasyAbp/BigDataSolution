@@ -1,9 +1,9 @@
 using System;
-using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.Domain.Entities;
 
 namespace EasyAbp.BigDataSolution.Infrastructure.Test.Domain
 {
-    public class User : FullAuditedAggregateRoot<Guid>
+    public class User : Entity<Guid>, IAggregateRoot
     {
         public string UserName { get; set; }
 

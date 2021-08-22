@@ -17,10 +17,17 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Cassandra
             CancellationToken cancellationToken = default)
         {
             var session = await Cluster.Builder()
+                .WithExecutionProfiles(op =>
+                {
+                    op.WithProfile("default", profile =>
+                    {
+                        profile.WithConsistencyLevel(ConsistencyLevel.Any);
+                    });
+                })
                 .AddContactPoint(connectionString.CassandraAddress)
                 .Build()
                 .ConnectAsync(connectionString.CassandraKeySpace);
-
+            
             return new CassandraClient(session);
         }
     }

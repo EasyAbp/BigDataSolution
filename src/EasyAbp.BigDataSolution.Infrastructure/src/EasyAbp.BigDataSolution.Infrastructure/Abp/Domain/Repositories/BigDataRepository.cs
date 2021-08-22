@@ -32,6 +32,13 @@ namespace EasyAbp.BigDataSolution.Infrastructure.Abp.Domain.Repositories
             return entity;
         }
 
+        public override async Task InsertManyAsync(IEnumerable<TEntity> entities, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
+        {
+            cancellationToken = GetCancellationToken(cancellationToken);
+            var dbContext = await GetDbContextAsync(cancellationToken);
+            await dbContext.CassandraClient.InsertManyAsync(entities);
+        }
+
         public override Task<TEntity> UpdateAsync(TEntity entity, bool autoSave = false, CancellationToken cancellationToken = new CancellationToken())
         {
             throw new NotImplementedException();
